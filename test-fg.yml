@@ -1,0 +1,9 @@
+config:
+  target: http://nextjs-fargate-demo-dev-alb-1398976779.us-east-1.elb.amazonaws.com
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: "/"

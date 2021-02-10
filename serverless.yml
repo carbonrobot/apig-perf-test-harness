@@ -5,25 +5,36 @@ plugins:
 
 provider:
   name: aws
+  endpointType: REGIONAL
   runtime: nodejs14.x
   stage: dev 
   region: us-east-1
-  memorySize: 1024
+  memorySize: 2048
   versionFunctions: false
   apiGateway:
     shouldStartNameWithService: true
 
+package:
+  exclude:
+    - './**'
+  include:
+    - './index.js'
+    - './package.json'
+
 functions:
-  hello-rest:
+  hello:
     handler: index.handler
     events:
       - http:
           path: /hello/rest
           method: get
   
-  hello-http:
-    handler: index.handler
-    events:
       - httpApi:
           path: /hello/http
           method: get
+
+      - alb:
+          listenerArn: arn:aws:elasticloadbalancing:us-east-1:842852627350:listener/app/nextjs-fargate-demo-dev-alb/88f10416258d4e56/9e911057bd91a704
+          priority: 1
+          conditions:
+            path: /hello

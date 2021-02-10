@@ -1,0 +1,9 @@
+config:
+  target: https://xb9l6ckdig.execute-api.us-east-1.amazonaws.com
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: "/dev/hello/rest"

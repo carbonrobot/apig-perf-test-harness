@@ -1,0 +1,9 @@
+config:
+  target: https://93s6i2e9uf.execute-api.us-east-1.amazonaws.com
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: "/hello/http"
