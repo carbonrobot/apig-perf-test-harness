@@ -1,0 +1,29 @@
+service: apig-perf-test-harness
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev 
+  region: us-east-1
+  memorySize: 1024
+  versionFunctions: false
+  apiGateway:
+    shouldStartNameWithService: true
+
+functions:
+  hello-rest:
+    handler: index.handler
+    events:
+      - http:
+          path: /hello/rest
+          method: get
+  
+  hello-http:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /hello/http
+          method: get

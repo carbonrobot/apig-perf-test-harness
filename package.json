@@ -1,0 +1,16 @@
+{
+  "name": "apig-perf-test-harness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "offline": "sls offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^2.23.0",
+    "serverless-offline": "^6.8.0"
+  }
+}
